@@ -1,0 +1,232 @@
+/* Layout geral */
+body {
+    font-family: Arial, sans-serif;
+    background: #0d0d26;
+    color: #f0f0f0;
+    margin: 0;
+    line-height: 1cm;
+}
+
+/* Header fixo */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #1e1e3f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+main {
+    margin-top: 90px;
+    margin-bottom: 70px;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* esquerda maior, direita menor */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Footer fixo */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1e1e3f;
+    text-align: center;
+    padding: 10px;
+    color: #ccc;
+}
+
+
+
+/* Cards e sections */
+.card, section {
+    background: #1e1e3f;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: #000;
+    box-sizing: border-box;
+   
+}
+.card::before {
+  content: "";            
+  display: block;         
+  height: 4px;            
+  width: 50px;            
+  background-color: #0074D9; 
+  margin-bottom: 10px;    
+}
+
+
+/*nota flutuante*/
+.sticky-note {
+    position: sticky;
+    top: 90px;
+    background: #ffc107;
+    color: #000;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* Caixa maior da seção */
+.servicos {
+  background-color: #1e1e3f; /* cor de fundo da caixona */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin: 30px auto 20px auto;
+  color: white;
+}
+
+/* Título da seção */
+.servicos h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  clamp:var(--success)(2);
+}
+
+/* Container dos cards */
+.servicos-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* permite quebrar em telas menores */
+}
+
+/* Cada cartão */
+.servico-card {
+  flex: 1;
+  min-width: 250px;
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.servico-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Botão "Saiba mais" */
+.servico-card button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #334155;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.servico-card button:hover {
+  background-color: #475569;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    main { grid-template-columns: 2fr 1fr; }
+    .servicos-container { flex-direction: column; }
+}
+@media (max-width: 720px) {
+    main { grid-template-columns: 1fr; }
+    aside { order: 2; }
+    .servicos-container { flex-direction: column; }
+}
+/* espaço */
+ul, li{
+margin: 4px 0;
+}
+a[target="_blank"]:hover { 
+    text-decoration: underline; 
+}
+p::first-letter{
+    font-size: 1em;
+} 
+:root {
+  --success: #10b981; /* O nome da variável é `--success` */
+}
+.btn--ghost:hover {
+  border: 2px solid var(--success); /* Usa a variável para a cor da borda */
+}
+
+/* Estilo para o botão "fantasma" */
+.btn--ghost {
+  background: transparent; /* Fundo transparente */
+  border: 2px solid #ccc; /* Borda inicial, cinza */
+  color: #f0f0f0; /* Cor do texto */
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Aplica a borda com a variável --success ao passar o mouse */
+.btn--ghost:hover {
+  border: 2px solid var(--success); /* Usa a variável aqui! */
+}
+
+/* Botões */
+.btn {
+    background: #0074D9;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+}
+.btn:hover:focus {
+    background: #00aaff;
+    cursor: pointer;
+    margin-top: 15px;
+}
+p{
+  color: var(--muted);
+  line-height: 1.6;  
+}
+ul li a:hover {
+  color: #f0f0f0; 
+  text-decoration: underline; 
+}
+@media (max-width: 720px) {
+    /* O seu código que já estava aqui */
+    main { 
+        grid-template-columns: 1fr; 
+    }
+    aside { 
+        order: 2; 
+    }
+    .servicos-container { 
+        flex-direction: column; 
+    }
+
+    /* Novos ajustes para telas menores que 720px */
+    body {
+        font-size: 14px; /* Diminui a fonte base */
+        padding: 10px;  /* Reduz o padding geral */
+    }
+    h1 {
+        font-size: 24px; /* Diminui o tamanho dos títulos */
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .card, section {
+        padding: 15px; /* Reduz o padding interno dos cards */
+        margin-bottom: 15px;
+    }
+}
+@media (max-width: 320px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .servico-card {
+        padding: 10px; /* Reduz o padding dos cards de serviço */
+    }
+}
